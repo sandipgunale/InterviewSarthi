@@ -83,49 +83,63 @@ const AddNewInterview = () => {
   return (
     <div>
       <div
-        className="p-10 rounded-lg border bg-secondary hover:scale-105 hover:shadow-sm transition-all cursor-pointer"
+        className="group relative p-8 rounded-2xl border-2 border-dashed border-gray-300 bg-gradient-to-br from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 hover:border-blue-400 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
         onClick={() => setOpenDialog(true)}
       >
-        <h2 className=" text-lg text-center">+ Add New</h2>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="relative z-10 text-center">
+          <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+          </div>
+          <h2 className="text-xl font-bold text-gray-800 mb-2">Start New Interview</h2>
+          <p className="text-gray-600 text-sm">Create a personalized mock interview session</p>
+        </div>
       </div>
+      
       <Dialog open={openDailog}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl rounded-2xl">
           <DialogHeader>
-            <DialogTitle className="text-2xl">
-              Tell us more about your job interviwing
+            <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+              Create Your Mock Interview
             </DialogTitle>
             <DialogDescription>
+              <p className="text-gray-600 mb-6">Tell us about the position you're preparing for, and we'll create a personalized interview experience.</p>
               <form onSubmit={onSubmit}>
-                <div className="my-3">
-                  <h2>
-                    Add Details about your job position, job descritpion and
-                    years of experience
-                  </h2>
+                <div className="space-y-6">
 
-                  <div className="mt-7 my-3">
-                    <label className="text-black">Job Role/job Position</label>
+                  <div className="space-y-2">
+                    <label className="block text-sm font-semibold text-gray-700">
+                      Job Role/Position
+                    </label>
                     <Input
-                      className="mt-1"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-300"
                       placeholder="Ex. Full stack Developer"
                       required
                       onChange={(e) => setJobPosition(e.target.value)}
                     />
                   </div>
-                  <div className="my-5">
-                    <label className="text-black">
-                      Job Description/ Tech stack (In Short)
+                  
+                  <div className="space-y-2">
+                    <label className="block text-sm font-semibold text-gray-700">
+                      Job Description/Tech Stack
                     </label>
                     <Textarea
-                      className="placeholder-opacity-50"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-300 resize-none"
                       placeholder="Ex. React, Angular, Nodejs, Mysql, Nosql, Python"
+                      rows="4"
                       required
                       onChange={(e) => setJobDesc(e.target.value)}
                     />
                   </div>
-                  <div className="my-5">
-                    <label className="text-black">Years of Experience</label>
+                  
+                  <div className="space-y-2">
+                    <label className="block text-sm font-semibold text-gray-700">
+                      Years of Experience
+                    </label>
                     <Input
-                      className="mt-1"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-300"
                       placeholder="Ex. 5"
                       max="50"
                       type="number"
@@ -134,22 +148,33 @@ const AddNewInterview = () => {
                     />
                   </div>
                 </div>
-                <div className="flex gap-5 justify-end">
+                
+                <div className="flex gap-4 justify-end pt-6 border-t border-gray-200 mt-8">
                   <Button
                     type="button"
-                    variant="goast"
+                    variant="outline"
+                    className="px-6 py-3 rounded-xl border-2 hover:bg-gray-50"
                     onClick={() => setOpenDialog(false)}
                   >
                     Cancel
                   </Button>
-                  <Button type="submit" disabled={loading}>
+                  <Button 
+                    type="submit" 
+                    disabled={loading}
+                    className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  >
                     {loading ? (
-                      <>
-                        <LoaderCircle className="animate-spin" />
-                        Generating From AI
-                      </>
+                      <div className="flex items-center space-x-2">
+                        <LoaderCircle className="animate-spin w-5 h-5" />
+                        <span>Generating Questions...</span>
+                      </div>
                     ) : (
-                      "Start Interview"
+                      <div className="flex items-center space-x-2">
+                        <span>Start Interview</span>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </div>
                     )}
                   </Button>
                 </div>
