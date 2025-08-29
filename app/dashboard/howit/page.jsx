@@ -10,7 +10,7 @@ const HowItWorks = () => {
   return (
     <>
       <Head>
-        <title>How It Works - AI Mock Interview</title>
+        <title>How It Works - InterviewSarthi</title>
         <meta
           name="description"
           content="Learn how our AI Mock Interview works."

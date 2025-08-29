@@ -33,7 +33,7 @@ const Header = ({ logo }) => {
   return (
     <div className=" bg-secondary shadow-sm ">
       <div className="w-[80%] m-auto flex gap-4 items-center justify-between">
-        <Link className="hidden md:block"  href="/dashboard">
+        <Link className="hidden md:block"  href="/">
           <Image src={logo} width={80} height={80} alt="logo" />
         </Link>
         <ul className="hidden md:flex gap-6">
@@ -52,19 +52,10 @@ const Header = ({ logo }) => {
               path == "/dashboard/question" && "text-black font-bold"
             }`}
           >
-            Questions
+            Prepare
           </li>
           </Link>
-          
-          <Link href="/dashboard/upgrade">
-            <li
-              className={`hover:text-black hover:font-bold transition-all cursor-pointer ${
-                path == "/dashboard/upgrade" && "text-black font-bold"
-              }`}
-            >
-              Upgrade
-            </li>
-          </Link>
+        
 
           <Link href="/dashboard/howit">
             <li

@@ -14,7 +14,7 @@ const page = () => {
 
     <div>
       <Head>
-        <title>AI Mock Interview</title>
+        <title>InterviewSarthi</title>
         <meta name="description" content="Ace your next interview with AI-powered mock interviews" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -29,28 +29,10 @@ const page = () => {
                   <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h1 className="text-3xl font-bold text-white">AI Mock Interview</h1>
+              <h1 className="text-3xl font-bold text-white">InterviewSarthi</h1>
             </div>
             <nav className="flex flex-col sm:flex-row flex-wrap items-center justify-between mt-4 md:mt-0 space-y-4 sm:space-y-0 sm:space-x-6">
-              <div>
-                <iframe
-                  src="https://github.com/sponsors/modamaan/button"
-                  title="Sponsor modamaan on GitHub"
-                  height="32"
-                  width="114"
-                  className="border-0 rounded-lg shadow-md">
-                </iframe>
-              </div>
-
-              <div>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://github.com/modamaan/Ai-mock-Interview"
-                  className="text-white hover:text-gray-200 transition-colors">
-                  <FaGithub className="w-8 h-8" />
-                </a>
-              </div>
+              
 
               <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0">
                 <a href="#features" className="text-lg text-white hover:text-gray-200 mx-2 md:mx-4 transition-colors font-medium">Features</a>
